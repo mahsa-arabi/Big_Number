@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/asus/CLionProjects/BigNumber/BigNumber.cpp
+BigNumber.h
+C:/Users/asus/CLionProjects/BigNumber/BigNumber.h
+stdexcept
+-
+
 C:/Users/asus/CLionProjects/BigNumber/BigNumber.h
 cstdint
 -

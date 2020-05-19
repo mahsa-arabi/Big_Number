@@ -452,3 +452,15 @@ BigNumber BigNumber::operator++(int) {
     (*this) = (*this) + 1;
     return temp;
 }
+
+BigNumber &BigNumber::operator--() {
+    (*this) = (*this) - 1;
+    return *this;
+}
+
+BigNumber BigNumber::operator--(int) {
+    BigNumber temp;
+    temp = (*this);
+    (*this) = (*this) - 1;
+    return temp;
+}
