@@ -440,3 +440,15 @@ BigNumber BigNumber::operator<<(unsigned shift) {
     }
     return temp;
 }
+
+BigNumber &BigNumber::operator++() {
+    (*this) = (*this) + 1;
+    return *this;
+}
+
+BigNumber BigNumber::operator++(int) {
+    BigNumber temp;
+    temp = (*this);
+    (*this) = (*this) + 1;
+    return temp;
+}
