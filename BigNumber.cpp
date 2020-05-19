@@ -1,4 +1,5 @@
 #include "BigNumber.h"
+#include "MyBigNumber.h"
 #include <stdexcept>
 
 using namespace std;
@@ -30,7 +31,7 @@ BigNumber::BigNumber ( const BigNumber & myBig ){
     numOfDigits = myBig.numOfDigits;
     numArray = new int8_t[numOfDigits];
     for(size_t i{0}; i < numOfDigits; ++i){
-        numArray[i] = myBig.numArray[i];
+        numArray[i] = myBig[i];
     }
 }
 
@@ -463,4 +464,20 @@ BigNumber BigNumber::operator--(int) {
     temp = (*this);
     (*this) = (*this) - 1;
     return temp;
+}
+BigNumber operator*(const BigNumber &num1, const BigNumber &num2) {
+    BigNumber multi="0";
+    BigNumber bMax = BigNumber::unsignedMax(num1, num2);
+    BigNumber bMin = BigNumber::unsignedMin(num1, num2);
+    BigNumber multiTemp;
+    for (size_t i {0}; i <bMin.getNumOfDigits() ; ++i) {
+        multiTemp = (MyBigNumber::multByOneDigit(bMax,bMin[i])<<i);
+        multi = multi + multiTemp;
+    }
+    if(num1.getSign() == num2.getSign()){
+        multi.sign=true;
+    }else{
+        multi.sign=false;
+    }
+    return multi;
 }

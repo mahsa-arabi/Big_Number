@@ -10,17 +10,19 @@ class BigNumber {
     friend std::istream& operator>>( std::istream & input, BigNumber & myBig );
     friend BigNumber operator+( const BigNumber & num1, const BigNumber & num2);
     friend BigNumber operator-(const BigNumber & num1,const BigNumber & num2);
+    friend BigNumber operator*(const BigNumber & num1, const BigNumber & num2);
 protected:
     bool sign;
     int8_t * numArray = nullptr;
 
     bool validate( const std::string & str, const std::string & pattern);
     unsigned numOfTrimCharsOnLeft( const std::string & str );
-    int8_t& operator[](size_t index);
+
     //max(a, b)    a.max(b)
     BigNumber(){}
 
     unsigned numOfDigits;
+
 public:
     //must be private
     static BigNumber unsignedMax( const BigNumber& num1, const BigNumber& num2);
@@ -58,6 +60,8 @@ public:
     BigNumber operator ++ (int);
     BigNumber&operator -- ();
     BigNumber operator -- (int);
+
+    int8_t& operator[](size_t index);
 };
 
 
