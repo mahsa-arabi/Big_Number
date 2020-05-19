@@ -62,7 +62,7 @@ public:
     BigNumber&operator -- ();
     BigNumber operator -- (int);
     int8_t& operator[](size_t index);
-
+    BigNumber operator()(unsigned num1, unsigned num2);
 };
 
 

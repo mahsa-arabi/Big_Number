@@ -502,3 +502,24 @@ BigNumber power(const BigNumber& num, unsigned num2){
     }
     return poweredNum;
 }
+
+BigNumber BigNumber:: operator()(unsigned num1, unsigned num2) {
+    BigNumber requestedNum;
+    requestedNum.sign = sign;
+    if(num1 < num2){
+        throw out_of_range("out of index Exception");
+    }else if(num2==0) {
+        requestedNum.numOfDigits=1;
+        requestedNum.numArray = new int8_t[requestedNum.numOfDigits];
+        requestedNum[0]=(*this)[num1];
+    }else{
+        requestedNum.numOfDigits = num2;
+        requestedNum.numArray = new int8_t[requestedNum.numOfDigits];
+        int temp=num1;
+        for (int i =requestedNum.numOfDigits-1 ; i <num2 ; --i) {
+            requestedNum[i]=(*this)[temp];
+            temp--;
+        }
+    }
+    return  requestedNum;
+}
