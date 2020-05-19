@@ -416,3 +416,27 @@ BigNumber operator-(const BigNumber &num1, const BigNumber &num2) {
     }
     return subtract;
 }
+
+BigNumber BigNumber::operator<<(unsigned shift) {
+   BigNumber temp;
+    if( numOfDigits == 1 && (*this)[0] == 0 ){
+        temp.sign = true;
+        temp.numOfDigits = numOfDigits;
+        temp.numArray=new int8_t[temp.numOfDigits];
+        temp[0]=0;
+    }else {
+        temp.sign = sign;
+        temp.numOfDigits = numOfDigits + shift;
+        temp.numArray = new int8_t[temp.numOfDigits];
+        size_t i{0};
+        for (; i < shift; ++i) {
+            temp[i] = 0;
+        }
+        int j = 0;
+        for (; i < temp.numOfDigits; i++) {
+            temp[i] = (*this)[j];
+            j++;
+        }
+    }
+    return temp;
+}
