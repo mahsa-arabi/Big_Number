@@ -481,3 +481,24 @@ BigNumber operator*(const BigNumber &num1, const BigNumber &num2) {
     }
     return multi;
 }
+
+BigNumber power(const BigNumber& num, unsigned num2){
+    BigNumber poweredNum = num;
+    if(num2 == 0){
+        poweredNum="1";
+    }else {
+        for (int i = 0; i < (num2 - 1); ++i) {
+            poweredNum = poweredNum * num;
+        }
+        if (num.sign) {
+            poweredNum.sign = true;
+        } else {
+            if (num2 % 2 == 0) {
+                poweredNum.sign = true;
+            } else {
+                poweredNum.sign = false;
+            }
+        }
+    }
+    return poweredNum;
+}

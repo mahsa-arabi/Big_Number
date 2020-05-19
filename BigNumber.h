@@ -11,6 +11,7 @@ class BigNumber {
     friend BigNumber operator+( const BigNumber & num1, const BigNumber & num2);
     friend BigNumber operator-(const BigNumber & num1,const BigNumber & num2);
     friend BigNumber operator*(const BigNumber & num1, const BigNumber & num2);
+    friend BigNumber power(const BigNumber& num, unsigned num2);
 protected:
     bool sign;
     int8_t * numArray = nullptr;
@@ -60,8 +61,8 @@ public:
     BigNumber operator ++ (int);
     BigNumber&operator -- ();
     BigNumber operator -- (int);
-
     int8_t& operator[](size_t index);
+
 };
 
 

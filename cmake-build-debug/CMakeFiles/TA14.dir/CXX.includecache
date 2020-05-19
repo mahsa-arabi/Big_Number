@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/asus/CLionProjects/BigNumber/BigNumber.cpp
-BigNumber.h
-C:/Users/asus/CLionProjects/BigNumber/BigNumber.h
-MyBigNumber.h
-C:/Users/asus/CLionProjects/BigNumber/MyBigNumber.h
-stdexcept
--
-
 C:/Users/asus/CLionProjects/BigNumber/BigNumber.h
 cstdint
 -
@@ -25,4 +17,14 @@ regex
 C:/Users/asus/CLionProjects/BigNumber/MyBigNumber.h
 BigNumber.h
 C:/Users/asus/CLionProjects/BigNumber/BigNumber.h
+
+C:/Users/asus/CLionProjects/BigNumber/main.cpp
+iostream
+-
+cstdint
+-
+BigNumber.h
+C:/Users/asus/CLionProjects/BigNumber/BigNumber.h
+MyBigNumber.h
+C:/Users/asus/CLionProjects/BigNumber/MyBigNumber.h
 
