@@ -3,7 +3,6 @@
 
 CMakeFiles/TA14.dir/BigNumber.cpp.obj: ../BigNumber.cpp
 CMakeFiles/TA14.dir/BigNumber.cpp.obj: ../BigNumber.h
-CMakeFiles/TA14.dir/BigNumber.cpp.obj: ../MyBigNumber.h
 
 CMakeFiles/TA14.dir/MyBigNumber.cpp.obj: ../BigNumber.h
 CMakeFiles/TA14.dir/MyBigNumber.cpp.obj: ../MyBigNumber.cpp

@@ -1,5 +1,4 @@
 #include "BigNumber.h"
-#include "MyBigNumber.h"
 #include <stdexcept>
 
 using namespace std;
@@ -465,22 +464,22 @@ BigNumber BigNumber::operator--(int) {
     (*this) = (*this) - 1;
     return temp;
 }
-BigNumber operator*(const BigNumber &num1, const BigNumber &num2) {
-    BigNumber multi="0";
-    BigNumber bMax = BigNumber::unsignedMax(num1, num2);
-    BigNumber bMin = BigNumber::unsignedMin(num1, num2);
-    BigNumber multiTemp;
-    for (size_t i {0}; i <bMin.getNumOfDigits() ; ++i) {
-        multiTemp = (MyBigNumber::multByOneDigit(bMax,bMin[i])<<i);
-        multi = multi + multiTemp;
-    }
-    if(num1.getSign() == num2.getSign()){
-        multi.sign=true;
-    }else{
-        multi.sign=false;
-    }
-    return multi;
-}
+//BigNumber operator*(const BigNumber &num1, const BigNumber &num2) {
+//    BigNumber multi="0";
+//    BigNumber bMax = BigNumber::unsignedMax(num1, num2);
+//    BigNumber bMin = BigNumber::unsignedMin(num1, num2);
+//    BigNumber multiTemp;
+//    for (size_t i {0}; i <bMin.getNumOfDigits() ; ++i) {
+//        multiTemp = (MyBigNumber::multByOneDigit(bMax,bMin[i])<<i);
+//        multi = multi + multiTemp;
+//    }
+//    if(num1.getSign() == num2.getSign()){
+//        multi.sign=true;
+//    }else{
+//        multi.sign=false;
+//    }
+//    return multi;
+//}
 
 BigNumber power(const BigNumber& num, unsigned num2){
     BigNumber poweredNum = num;
@@ -522,4 +521,23 @@ BigNumber BigNumber:: operator()(unsigned num1, unsigned num2) {
         }
     }
     return  requestedNum;
+}
+
+BigNumber operator/(const BigNumber &num1, const BigNumber &num2) {
+    BigNumber bMax = BigNumber::unsignedMax(num1, num2);
+    BigNumber bMin = BigNumber::unsignedMin(num1, num2);
+    BigNumber q;
+    q.numOfDigits=bMax.numOfDigits;
+    q.numArray=new int8_t[q.numOfDigits];
+    BigNumber r;
+    r.sign=true;
+    r.numOfDigits=bMin.numOfDigits;
+    if(num1.getSign() == num2.getSign()){
+        q.sign=true;
+    }else{
+        q.sign=false;
+    }
+    for (int i = 0; i < num2.numOfDigits ; ++i) {
+
+    }
 }

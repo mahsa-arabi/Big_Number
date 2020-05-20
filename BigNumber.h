@@ -10,20 +10,20 @@ class BigNumber {
     friend std::istream& operator>>( std::istream & input, BigNumber & myBig );
     friend BigNumber operator+( const BigNumber & num1, const BigNumber & num2);
     friend BigNumber operator-(const BigNumber & num1,const BigNumber & num2);
-    friend BigNumber operator*(const BigNumber & num1, const BigNumber & num2);
+   // friend BigNumber operator*(const BigNumber & num1, const BigNumber & num2);
+   friend BigNumber operator*(const BigNumber & num1, const BigNumber & num2);
     friend BigNumber power(const BigNumber& num, unsigned num2);
+    friend BigNumber operator/(const BigNumber & num1, const BigNumber & num2);
+    friend BigNumber operator%(const BigNumber & num1, const BigNumber & num2);
 protected:
-    bool sign;
     int8_t * numArray = nullptr;
 
     bool validate( const std::string & str, const std::string & pattern);
     unsigned numOfTrimCharsOnLeft( const std::string & str );
 
-    //max(a, b)    a.max(b)
-    BigNumber(){}
-
     unsigned numOfDigits;
 
+    bool sign;
 public:
     //must be private
     static BigNumber unsignedMax( const BigNumber& num1, const BigNumber& num2);
@@ -34,7 +34,7 @@ public:
     static BigNumber unsignedSubtract( const BigNumber& num1, const BigNumber& num2 );
 
     // end of private list
-
+    BigNumber(){}
     BigNumber( const std::string & str );
     BigNumber( const char * myCharArray ) : BigNumber((std::string) myCharArray) {}
     BigNumber(const long & intNum );
@@ -63,6 +63,9 @@ public:
     BigNumber operator -- (int);
     int8_t& operator[](size_t index);
     BigNumber operator()(unsigned num1, unsigned num2);
+
+//max(a, b)    a.max(b)
+
 };
 
 
