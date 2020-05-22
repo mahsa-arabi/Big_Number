@@ -13,8 +13,9 @@ class BigNumber {
    // friend BigNumber operator*(const BigNumber & num1, const BigNumber & num2);
    friend BigNumber operator*(const BigNumber & num1, const BigNumber & num2);
     friend BigNumber power(const BigNumber& num, unsigned num2);
-    friend BigNumber operator/(const BigNumber & num1, const BigNumber & num2);
+    friend BigNumber operator/(const BigNumber &num1, const BigNumber &num2);
     friend BigNumber operator%(const BigNumber & num1, const BigNumber & num2);
+
 protected:
     int8_t * numArray = nullptr;
 
@@ -63,6 +64,7 @@ public:
     BigNumber operator -- (int);
     int8_t& operator[](size_t index);
     BigNumber operator()(unsigned num1, unsigned num2);
+    static DivideAnswer divide(const BigNumber &num1, const BigNumber &num2);
 
 //max(a, b)    a.max(b)
 

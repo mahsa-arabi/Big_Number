@@ -1,5 +1,6 @@
 #include "BigNumber.h"
 #include <stdexcept>
+#include <iostream>
 
 using namespace std;
 
@@ -157,7 +158,7 @@ bool BigNumber::operator!=(const BigNumber & myBig) const {
 }
 
 BigNumber::BigNumber ( BigNumber && myBig ) noexcept
-    :sign{myBig.sign}, numOfDigits{myBig.numOfDigits}, numArray{myBig.numArray}
+        :sign{myBig.sign}, numOfDigits{myBig.numOfDigits}, numArray{myBig.numArray}
 {
     myBig.numArray = nullptr;
 }
@@ -320,7 +321,7 @@ BigNumber BigNumber:: unsignedSubtract( const BigNumber& num1, const BigNumber& 
     int8_t * nArray = new int8_t[bMax.numOfDigits]{};
     size_t i{0};
 
- ;   for(; i < bMin.numOfDigits; ++i){
+    ;   for(; i < bMin.numOfDigits; ++i){
         if(bMax[i] >= bMin[i]){
             nArray[i] = bMax[i] - bMin[i];
         }
@@ -418,7 +419,7 @@ BigNumber operator-(const BigNumber &num1, const BigNumber &num2) {
 }
 
 BigNumber BigNumber::operator<<(unsigned shift) {
-   BigNumber temp;
+    BigNumber temp;
     if( numOfDigits == 1 && (*this)[0] == 0 ){
         temp.sign = true;
         temp.numOfDigits = numOfDigits;

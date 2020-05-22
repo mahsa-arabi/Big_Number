@@ -16,8 +16,6 @@ public:
     MyBigNumber(){}
 
     MyBigNumber(BigNumber number);
-    //BigNumber operator*( const MyBigNumber & num2);
-   // BigNumber operator* ( const BigNumber & num2);
     MyBigNumber( const std::string & str );
     MyBigNumber( const char * myCharArray ) : BigNumber((std::string) myCharArray) {}
     MyBigNumber(const long & intNum );
